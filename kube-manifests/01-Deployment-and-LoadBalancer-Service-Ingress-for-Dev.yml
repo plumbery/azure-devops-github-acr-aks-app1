@@ -54,7 +54,7 @@ spec:
   tls:
     - hosts:
       - dev.alpercan.site
-      secretName: dev-alpercan-secret      
+      secretName: dev-kubeoncloud-secret     
   
 
 
