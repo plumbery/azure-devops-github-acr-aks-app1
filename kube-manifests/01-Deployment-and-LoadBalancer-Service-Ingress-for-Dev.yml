@@ -23,16 +23,35 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: app1-nginx-loadbalancer-service
+  name: app1-nginx-loadbalancer-service-dev
   labels:
     app: app1-nginx
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: app1-nginx
   ports:
     - port: 80
       targetPort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-app1-nginx
+spec:
+  rules:
+  - host: dev.alpercan.site
+    http:
+      paths:
+      - backend:
+          service:
+            name: app1-nginx-loadbalancer-service-dev
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  
+  
 
 
 
