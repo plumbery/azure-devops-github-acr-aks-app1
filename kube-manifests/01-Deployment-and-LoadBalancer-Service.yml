@@ -27,12 +27,60 @@ metadata:
   labels:
     app: app1-nginx
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: app1-nginx
   ports:
     - port: 80
       targetPort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-app1-nginx
+spec:
+  rules:
+  - host: dev.alpercan.site
+    http:
+      paths:
+      - backend:
+          service:
+            name: app1-nginx-clusterip-service
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: qa.alpercan.site
+    http:
+      paths:
+      - backend:
+          service:
+            name: app2-nginx-clusterip-service
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: staging.alpercan.site
+    http:
+      paths:
+      - backend:
+          service:
+            name: usermgmt-webapp-clusterip-service
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: prod.alpercan.site
+    http:
+      paths:
+      - backend:
+          service:
+            name: usermgmt-webapp-clusterip-service
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  
 
 
 
