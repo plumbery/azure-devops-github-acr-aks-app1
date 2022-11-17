@@ -51,8 +51,8 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-tls:
-  - hosts:
-    - prod.alpercan.site
-    secretName: prod-alpercan-secret    
+  tls:
+    - hosts:
+      - prod.alpercan.site
+      secretName: prod-alpercan-secret    
   
