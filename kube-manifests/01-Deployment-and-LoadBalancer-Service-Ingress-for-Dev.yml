@@ -42,7 +42,6 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
-  ingressClassName: nginx
   rules:
   - host: dev.alpercan.site
     http:
@@ -57,7 +56,7 @@ spec:
   tls:
     - hosts:
       - dev.alpercan.site
-      secretName: dev-kubeoncloud-secret     
+      secretName: dev-alpercan-secret     
   
 
 
