@@ -51,6 +51,10 @@ spec:
               number: 80
         path: /
         pathType: Prefix
+        tls:
+  - hosts:
+    - qa.alpercan.site
+    secretName: qa-alpercan-secret    
   
 
 

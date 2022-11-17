@@ -51,4 +51,8 @@ spec:
               number: 80
         path: /
         pathType: Prefix
+tls:
+  - hosts:
+    - staging.alpercan.site
+    secretName: staging-alpercan-secret    
   
