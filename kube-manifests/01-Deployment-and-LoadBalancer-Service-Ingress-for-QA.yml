@@ -39,6 +39,7 @@ kind: Ingress
 metadata:
   name: ingress-app1-nginx-qa
 spec:
+  ingressClassName: nginx
   rules:
   - host: qa.alpercan.site
     http:

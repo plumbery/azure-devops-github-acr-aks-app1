@@ -39,6 +39,7 @@ kind: Ingress
 metadata:
   name: ingress-app1-nginx-dev
 spec:
+  ingressClassName: nginx
   rules:
   - host: dev.alpercan.site
     http:

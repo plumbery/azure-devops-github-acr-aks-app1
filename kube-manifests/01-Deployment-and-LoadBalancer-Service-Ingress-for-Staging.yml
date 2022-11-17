@@ -39,6 +39,7 @@ kind: Ingress
 metadata:
   name: ingress-app1-nginx-staging
 spec:
+  ingressClassName: nginx
   rules:
   - host: staging.alpercan.site
     http:
