@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: app1-nginx-deployment
   labels:
-    app: app1-nginx
+    app: app1-nginx-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: app1-nginx
+      app: app1-nginx-dev
   template:
     metadata:
       labels:
-        app: app1-nginx
+        app: app1-nginx-dev
     spec:
       containers:
         - name: app1-nginx
@@ -25,11 +25,11 @@ kind: Service
 metadata:
   name: app1-nginx-loadbalancer-service-dev
   labels:
-    app: app1-nginx
+    app: app1-nginx-dev
 spec:
   type: ClusterIP
   selector:
-    app: app1-nginx
+    app: app1-nginx-dev
   ports:
     - port: 80
       targetPort: 80
