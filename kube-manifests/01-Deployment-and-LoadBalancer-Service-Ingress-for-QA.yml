@@ -48,7 +48,7 @@ spec:
       paths:
       - backend:
           service:
-            name: app1-nginx-clusterip-service-qa
+            name: app1-nginx-loadbalancer-service-qa
             port:
               number: 80
         path: /
